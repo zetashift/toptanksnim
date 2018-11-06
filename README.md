@@ -1,7 +1,7 @@
 ## Nimified Topdown Tank Battle
 
-Make sure you have Godot(currently using Godot 3.1 alpha 2) and Nim(0.18.0) and the [bindings](https://github.com/pragmagic/godot-nim) installed when you want to try these out. Run `nake build` in a samples directory to get started.
-This example shows a lot more of the engine, mostly signals and structuring a project.
+Make sure you have Godot(currently using Godot 3.1 alpha 2) and Nim(0.18.0) and the [bindings](https://github.com/pragmagic/godot-nim) installed when you want to try these out. Run `nake build` in the directory to get started.
+This example shows a lot more of the engine, structuring a project and pathfinding.
 
 ### TODO
 
