@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Bullet.gdns" type="Script" id=1]
+[ext_resource path="res://Scenes/Effects/Explosion.tscn" type="PackedScene" id=2]
+
+[node name="Bullet" type="Area2D"]
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
+speed = 2
+damage = 20
+lifetime = 1.0
+
+[node name="Sprite" type="Sprite" parent="."]
+region_enabled = true
+region_rect = Rect2( 310, 359, 26, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Lifetime" type="Timer" parent="."]
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+[node name="Explosion" parent="." instance=ExtResource( 2 )]
+visible = false
+scale = Vector2( 0.5, 0.5 )
+_sections_unfolded = [ "Transform", "frames" ]
+
+[connection signal="body_entered" from="." to="." method="on_bullet_body_entered"]
+[connection signal="timeout" from="Lifetime" to="." method="on_lifetime_timeout"]
+[connection signal="animation_finished" from="Explosion" to="." method="on_explosion_animation_finished"]

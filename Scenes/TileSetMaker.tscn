@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/TileSetMaker.gdns" type="Script" id=1]
+[ext_resource path="res://assets/terrainTiles_retina.png" type="Texture" id=2]
+
+[node name="TileSetMaker" type="Node"]
+script = ExtResource( 1 )
+_sections_unfolded = [ "Pause", "Script" ]
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+

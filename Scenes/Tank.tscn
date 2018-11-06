@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Tank.gdns" type="Script" id=1]
+
+[node name="Tank" type="KinematicBody2D"]
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+motion/sync_to_physics = false
+script = ExtResource( 1 )
+bullet = null
+speed = null
+rotation_speed = null
+gun_cooldown = null
+health = null
+
+[node name="Sprite" type="Sprite" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Turret" type="Sprite" parent="."]
+
+[node name="Muzzle" type="Position2D" parent="Turret"]
+
+[node name="GunTimer" type="Timer" parent="."]
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+[connection signal="timeout" from="GunTimer" to="." method="on_gun_timer_timeout"]
